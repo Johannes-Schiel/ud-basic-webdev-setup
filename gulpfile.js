@@ -3,7 +3,7 @@ const gulp = require('gulp');
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const browserSync = require('browser-sync').create();
-var gutil = require('gulp-util');
+const gutil = require('gulp-util');
 const sourcemaps = require('gulp-sourcemaps');
 
 // For SASS -> CSS
