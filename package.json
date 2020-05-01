@@ -1,0 +1,62 @@
+{
+    "name": "basic-dev-environment-2020",
+    "version": "1.0.0",
+    "description": "Bei diesem Repository handelt es sich um meine \"Test/Entwicklungs Umgebung\" für alle meine YouTube Tutorials. Es basiert auf Gulp, TypeScript/JS ES6+ und SASS",
+    "main": "index.js",
+    "scripts": {
+        "dev": "gulp dev",
+        "build": "gulp"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Unleashed-Design/basic-dev-environment-2020.git"
+    },
+    "keywords": [
+        "Gulp",
+        "TypeScript",
+        "JavaScript",
+        "SASS",
+        "HTML"
+    ],
+    "author": "Johannes Schiel",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Unleashed-Design/basic-dev-environment-2020/issues"
+    },
+    "homepage": "https://github.com/Unleashed-Design/basic-dev-environment-2020#readme",
+    "devDependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
+        "autoprefixer": "^9.7.6",
+        "babel-eslint": "^10.1.0",
+        "babel-preset-es2015": "^6.24.1",
+        "browser-sync": "^2.26.7",
+        "cssnano": "^4.1.10",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-browserify": "^0.5.1",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-concat": "^2.6.1",
+        "gulp-env": "^0.4.0",
+        "gulp-jest": "^4.0.3",
+        "gulp-jshint": "^2.1.0",
+        "gulp-jslint": "^1.0.10",
+        "gulp-minify": "^3.1.0",
+        "gulp-nodemon": "^2.5.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-postcss": "^8.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^4.1.0",
+        "gulp-sass-lint": "^1.4.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "gulp-util": "^3.0.8",
+        "jest-cli": "^25.5.3",
+        "jshint": "^2.11.0",
+        "just-cli": "^1.3.2",
+        "rename": "^1.0.4"
+    },
+    "dependencies": {
+        "gulp-htmlmin": "^5.0.1"
+    }
+}
