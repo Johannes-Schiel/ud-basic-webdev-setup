@@ -1,6 +1,6 @@
 # IDE 2020 - Tutorial Basic
 
-Bei diesem Repository handelt es sich um meine "Test/Entwicklungs Umgebung" für alle meine YouTube Tutorials. Es basiert auf Gulp, TypeScript/JS ES6+ und SASS. Es gehört zu dem folgenden [YouTube Tutorial](https://discord.gg/NV2NrXA) und wird dor genau erklärt.
+Bei diesem Repository handelt es sich um meine "Test/Entwicklungs Umgebung" für alle meine YouTube Tutorials. Es basiert auf Gulp, TypeScript/JS ES6+ und SASS. Es gehört zu dem folgenden [YouTube Tutorial](https://www.youtube.com/watch?v=GMakamOBAwA) und wird dor genau erklärt.
 
 ## Befehle
 
