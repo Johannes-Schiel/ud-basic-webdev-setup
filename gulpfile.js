@@ -17,7 +17,6 @@ const sassLint = require('gulp-sass-lint');
 const htmlmin = require('gulp-htmlmin');
 
 // JavaScript/TypeScript
-const browserify = require('gulp-browserify');
 const babel = require('gulp-babel');
 const jshint = require('gulp-jshint');
 const uglify = require('gulp-uglify');
