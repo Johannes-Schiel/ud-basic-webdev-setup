@@ -112,7 +112,9 @@ const script = () => {
         .pipe(concat('concat.js'))
         // Use Babel
         .pipe(babel({
-            presets: ['@babel/preset-env']
+            presets: [
+                '@babel/preset-env'
+            ]
         }))
         // JavaScript Lint
         .pipe(jshint())
