@@ -3,6 +3,7 @@ const gulp = require('gulp');
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const browserSync = require('browser-sync').create();
+const browserify = require('gulp-browserify');
 const gutil = require('gulp-util');
 const sourcemaps = require('gulp-sourcemaps');
 
@@ -108,16 +109,16 @@ const script = () => {
         })))
         // Start useing source maps
         .pipe(sourcemaps.init())
-        // concat
-        .pipe(concat('concat.js'))
         // Use Babel
         .pipe(babel({
-            presets: [
-                '@babel/preset-env'
-            ]
+            presets: ['@babel/env']
         }))
-        // JavaScript Lint
-        .pipe(jshint())
+        // concat
+        .pipe(concat('concat.js'))
+        // Browserfy
+        .pipe(
+            browserify({})
+        )
         // Report of jslint
         .pipe(jshint.reporter('jshint-stylish'))
         // Minify
