@@ -98,14 +98,22 @@ const script = () => {
         .pipe(gulp.dest(`${dest}/js`));
 };
 
+// Copy Assets
+const assets = () => {
+    return gulp.src(`${src}/assets/**`)
+        .pipe(gulp.dest(`${dest}/assets`));
+};
+
 // Function to watch our Changes and refreash page
-const watch = () => gulp.watch([`${src}/*.html`, `${src}/js/**/*.js`, `${src}/sass/**/*.sass`], gulp.series(css, script, html, reload));
+const watch = () => gulp.watch(
+    [`${src}/*.html`, `${src}/js/**/*.js`, `${src}/sass/**/*.sass`, `${src}/assets/**/*.*`],
+    gulp.series(assets, css, script, html, reload));
 
 // All Tasks for this Project
-const dev = gulp.series(css, script, html, serve, watch);
+const dev = gulp.series(assets, css, script, html, serve, watch);
 
 // Just Build the Project
-const build = gulp.series(css, script, html);
+const build = gulp.series(css, script, html, assets);
 
 // Default function (used when type gulp)
 exports.dev = dev;
