@@ -13,4 +13,3 @@ Bei diesem Repository handelt es sich um meine "Test-/Entwicklungs-Umgebung" fü
 Wie bei jedem Programmier-Projekt kommt dieses Projekt auch in die Jahre, gerne kannst du helfen diese Umgebung besser zu gestalten und Änderungen vorschlagen oder Issues schreiben.
 
 Für Fragen oder weitere Informationen schau doch einfach mal auf dem [Discord Server](https://discord.gg/NV2NrXA) vorbei
-

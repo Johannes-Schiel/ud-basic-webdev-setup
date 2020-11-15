@@ -3,8 +3,7 @@ const gulp = require('gulp');
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const browserSync = require('browser-sync').create();
-const browserify = require('gulp-browserify');
-const gutil = require('gulp-util');
+const browserify = require('browserify');
 const sourcemaps = require('gulp-sourcemaps');
 
 // For SASS -> CSS
@@ -12,16 +11,14 @@ const sass = require('gulp-sass');
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
-const sassLint = require('gulp-sass-lint');
 
 // HTML
 const htmlmin = require('gulp-htmlmin');
 
 // JavaScript/TypeScript
-const babel = require('gulp-babel');
-const jshint = require('gulp-jshint');
-const uglify = require('gulp-uglify');
-const concat = require('gulp-concat');
+const terser = require('gulp-terser-js');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
 
 // Define Important Varaibles
 const src = './src';
@@ -49,20 +46,6 @@ const css = () => {
     return gulp.src(`${src}/sass/**/*.sass`)
         // Init Plumber
         .pipe(plumber())
-        // Lint SASS
-        .pipe(sassLint({
-            options: {
-                formatter: 'stylish',
-            },
-            rules: {
-                'no-ids': 1,
-                'final-newline': 0,
-                'no-mergeable-selectors': 1,
-                'indentation': 0
-            }
-        }))
-        // Format SASS
-        .pipe(sassLint.format())
         // Start Source Map
         .pipe(sourcemaps.init())
         // Compile SASS -> CSS
@@ -101,33 +84,17 @@ const html = () => {
 
 // Compile .js to minify .js
 const script = () => {
-    // Find SASS
-    return gulp.src(`${src}/js/**/*.js`)
-        // Init Plumber
-        .pipe(plumber(((error) => {
-            gutil.log(error.message);
-        })))
-        // Start useing source maps
-        .pipe(sourcemaps.init())
-        // Use Babel
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
-        // concat
-        .pipe(concat('concat.js'))
-        // Browserfy
-        .pipe(
-            browserify({})
-        )
-        // Report of jslint
-        .pipe(jshint.reporter('jshint-stylish'))
-        // Minify
-        .pipe(uglify())
-        // add SUffix
-        .pipe(rename({ basename: 'main', suffix: ".min" }))
-        // Write Sourcemap
-        .pipe(sourcemaps.write(''))
-        // Write everything to destination folder
+    return browserify(`${src}/js/main.js`, {debug: true})
+        .transform('babelify', {
+            presets: ['babel-preset-env'],
+            plugins: ['babel-plugin-transform-runtime']
+        }).plugin('tinyify')
+        .bundle()
+        .pipe(source(`main.bundle.js`))
+        .pipe(buffer())
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(terser())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(`${dest}/js`));
 };
 
