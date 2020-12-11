@@ -1,7 +1,7 @@
 {
     "name": "basic-dev-environment-2020",
     "version": "1.1.0",
-    "description": "Bei diesem Repository handelt es sich um meine \"Test/Entwicklungs Umgebung\" für alle meine YouTube Tutorials. Es basiert auf Gulp, TypeScript/JS ES6+ und SASS",
+    "description": "Bei diesem Repository handelt es sich um meine \"Test-/Entwicklungsumgebung\" für alle meine YouTube Tutorials. Sie basiert auf Gulp, TypeScript/JS, ES6+ und SASS",
     "main": "index.js",
     "scripts": {
         "dev": "gulp dev",
