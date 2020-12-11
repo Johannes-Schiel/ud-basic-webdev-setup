@@ -1,4 +1,4 @@
-// Import everything important
+// Import important packages
 const gulp = require('gulp');
 const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
@@ -6,7 +6,7 @@ const browserSync = require('browser-sync').create();
 const browserify = require('browserify');
 const sourcemaps = require('gulp-sourcemaps');
 
-// For SASS -> CSS
+// SASS -> CSS
 const sass = require('gulp-sass');
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
@@ -15,22 +15,22 @@ const cssnano = require("cssnano");
 // HTML
 const htmlmin = require('gulp-htmlmin');
 
-// JavaScript/TypeScript
+// JavaScript / TypeScript
 const terser = require('gulp-terser-js');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 
-// Define Important Varaibles
+// Define important variables
 const src = './src';
 const dest = './dist';
 
-// Function for reload the Browser
+// Reload the browser
 const reload = (done) => {
     browserSync.reload();
     done();
 };
 
-// Function for serve the dev server in borwsaer
+// Serve the dev-server in the browser
 const serve = (done) => {
     browserSync.init({
         server: {
@@ -40,35 +40,35 @@ const serve = (done) => {
     done();
 };
 
-// Compile sass into css with gulp
+// Compile SASS to CSS with gulp
 const css = () => {
     // Find SASS
     return gulp.src(`${src}/sass/**/*.sass`)
         // Init Plumber
         .pipe(plumber())
-        // Start Source Map
+        // Start sourcemap
         .pipe(sourcemaps.init())
-        // Compile SASS -> CSS
+        // Compile SASS to CSS
         .pipe(sass.sync({ outputStyle: "compressed" })).on('error', sass.logError)
-        // add SUffix
+        // Add suffix
         .pipe(rename({ basename: 'main', suffix: ".min" }))
         // Add Autoprefixer & cssNano
         .pipe(postcss([autoprefixer(), cssnano()]))
-        // Write Source Map
+        // Write sourcemap
         .pipe(sourcemaps.write(''))
         // Write everything to destination folder
         .pipe(gulp.dest(`${dest}/css`))
-        // Reload Page
+        // Reload page
         .pipe(browserSync.stream());
 };
 
-// Compile .html to minify .html
+// Compile .html to minified .html
 const html = () => {
-    // Find SASS
+    // Find HTML
     return gulp.src(`${src}/*.html`)
         // Init Plumber
         .pipe(plumber())
-        // Compile HTML -> minified HTML
+        // Compile HTML to minified HTML
         .pipe(htmlmin({
             collapseWhitespace: true,
             removeComments: true,
@@ -82,9 +82,9 @@ const html = () => {
         .pipe(gulp.dest(`${dest}`));
 };
 
-// Compile .js to minify .js
+// Compile .js to minified .js
 const script = () => {
-    return browserify(`${src}/js/main.js`, {debug: true})
+    return browserify(`${src}/js/main.js`, { debug: true })
         .transform('babelify', {
             presets: ['babel-preset-env'],
             plugins: ['babel-plugin-transform-runtime']
@@ -98,24 +98,22 @@ const script = () => {
         .pipe(gulp.dest(`${dest}/js`));
 };
 
-// Copy Assets
+// Copy assets
 const assets = () => {
     return gulp.src(`${src}/assets/**`)
         .pipe(gulp.dest(`${dest}/assets`));
 };
 
-// Function to watch our Changes and refreash page
+// Watch changes and refresh page
 const watch = () => gulp.watch(
     [`${src}/*.html`, `${src}/js/**/*.js`, `${src}/sass/**/*.sass`, `${src}/assets/**/*.*`],
     gulp.series(assets, css, script, html, reload));
 
-// All Tasks for this Project
-const dev = gulp.series(assets, css, script, html, serve, watch);
+// Development tasks
+exports.dev = gulp.series(assets, css, script, html, serve, watch);
 
-// Just Build the Project
-const build = gulp.series(css, script, html, assets);
+// Build tasks
+exports.build = gulp.series(css, script, html, assets);
 
-// Default function (used when type gulp)
-exports.dev = dev;
-exports.build = build;
+// Default function (used when type "gulp")
 exports.default = build;
