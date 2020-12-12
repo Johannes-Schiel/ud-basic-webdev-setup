@@ -110,10 +110,10 @@ const watch = () => gulp.watch(
     gulp.series(assets, css, script, html, reload));
 
 // Development tasks
-exports.dev = gulp.series(assets, css, script, html, serve, watch);
+const dev = gulp.series(assets, css, script, html, serve, watch);
 
 // Build tasks
-exports.build = gulp.series(css, script, html, assets);
+const build = gulp.series(css, script, html, assets);
 
 // Default function (used when type "gulp")
-exports.default = build;
+exports.default = dev;
