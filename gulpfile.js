@@ -117,4 +117,5 @@ const build = gulp.series(css, script, html, assets);
 
 // Default function (used when type "gulp")
 exports.default = dev;
+exports.dev = dev;
 exports.build = build;
