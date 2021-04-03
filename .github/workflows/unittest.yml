@@ -23,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm i
 
-      - name: Run JavaScript Unit Tests
+      - name: Run Tests
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
