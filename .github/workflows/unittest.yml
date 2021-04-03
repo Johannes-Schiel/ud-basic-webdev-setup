@@ -1,0 +1,30 @@
+name: Pages
+
+on:
+  push:
+    branches: [feature/**]
+  pull_request:
+    branches: [mastefeature/**r]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Node Installieren
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm i
+
+      - name: Run JavaScript Unit Tests
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm run test
