@@ -2,12 +2,12 @@ name: Unit-Testing
 
 on:
   push:
-    branches: [feature/**]
+    branches: [feature/**, bugfix/**]
   pull_request:
-    branches: [mastefeature/**r]
+    branches: [mastefeature/**, bugfix/**]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
