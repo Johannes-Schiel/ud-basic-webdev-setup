@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "dev": "gulp dev",
-        "test": "jest",
+        "test": "jest --watch=true",
         "test:ci": "jest --coverage=true",
         "e2e": "jest --config jest-e2e.js",
         "build": "gulp build"
