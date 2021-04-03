@@ -4,7 +4,7 @@ on:
   push:
     branches: [feature/**, bugfix/**]
   pull_request:
-    branches: [feature/**, bugfix/**]
+    branches: [master, develop]
 
 jobs:
   test:
@@ -27,4 +27,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm run test:ci
+      - run: npm run dev
+
+      - name: Testing
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm run e2e
