@@ -1,5 +1,8 @@
 # IDE 2020 - Tutorial Basic
 
+[![Deploy-Page](https://github.com/Johannes-Schiel/ud-basic-webdev-setup/actions/workflows/pages.yml/badge.svg?branch=master)](https://github.com/Johannes-Schiel/ud-basic-webdev-setup/actions/workflows/pages.yml)
+[![Unit-Testing](https://github.com/Johannes-Schiel/ud-basic-webdev-setup/actions/workflows/unittest.yml/badge.svg?branch=master)](https://github.com/Johannes-Schiel/ud-basic-webdev-setup/actions/workflows/unittest.yml)
+
 Bei diesem Repository handelt es sich um meine "Test-/Entwicklungsumgebung" für alle meine YouTube Tutorials. Sie basiert auf Gulp, TypeScript/JS, ES6+ und Sass, gehört zu dem folgenden [YouTube Tutorial](https://www.youtube.com/watch?v=GMakamOBAwA) und wird dort genau erklärt.
 
 ## Befehle
