@@ -1,11 +1,6 @@
 
-
-function test(a, b) {
-    return a+b;
+function add(a, b) {
+    return a + b;
 }
 
-
-
-console.log(test(5,4))
-
-module.exports = test;
+module.exports = add;
