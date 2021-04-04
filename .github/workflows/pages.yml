@@ -2,8 +2,8 @@ name: Deploy-Page
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - master
   release:
     types:
       - released
