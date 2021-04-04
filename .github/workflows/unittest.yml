@@ -4,7 +4,7 @@ on:
   push:
     branches: [feature/**, bugfix/**]
   pull_request:
-    branches: [feature/**, bugfix/**]
+    branches: [master]
 
 jobs:
   test:
