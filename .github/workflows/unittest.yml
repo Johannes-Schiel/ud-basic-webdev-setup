@@ -2,7 +2,7 @@ name: Unit-Testing
 
 on:
   push:
-    branches: [feature/**, bugfix/**]
+    branches: [feature/#*, bugfix/#*]
   pull_request:
     branches: [master]
 
