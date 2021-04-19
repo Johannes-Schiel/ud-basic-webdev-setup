@@ -74,7 +74,6 @@ const html = () => {
             removeComments: true,
             html5: true,
             removeEmptyAttributes: true,
-            removeTagWhitespace: true,
             sortAttributes: true,
             sortClassName: true
         }))
