@@ -11,6 +11,10 @@ Bei diesem Repository handelt es sich um meine "Test-/Entwicklungsumgebung" für
 
 `npm run build` ist der Build-Befehl, hierbei wird alles gebaut und im `dist/` Verzeichnis hinterlegt. Es wird nicht auf Änderungen an Dateien gewartet.
 
+## Typescript
+
+Zur Verwendung von Typescript muss eine ``tsconfig.json`` erstellt werden (``.example`` aus ``tsconfig.example.json`` entfernen). Das Gulpfile erkennt diese Datei und verwendet dementsprechend einen Typescript Compiler.
+
 ## Mitarbeit
 
 Wie bei jedem Programmier-Projekt kommt dieses Projekt auch in die Jahre, gerne kannst du helfen diese Umgebung besser zu gestalten und Änderungen vorschlagen oder Issues schreiben.

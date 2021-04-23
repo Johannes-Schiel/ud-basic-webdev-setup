@@ -1,16 +1,18 @@
 // Import important packages
+const fs = require('fs');
+const path = require('path');
 const gulp = require('gulp');
-const plumber = require("gulp-plumber");
-const rename = require("gulp-rename");
+const plumber = require('gulp-plumber');
+const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const browserify = require('browserify');
 const sourcemaps = require('gulp-sourcemaps');
 
 // SASS -> CSS
 const sass = require('gulp-sass');
-const postcss = require("gulp-postcss");
-const autoprefixer = require("autoprefixer");
-const cssnano = require("cssnano");
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 // HTML
 const htmlmin = require('gulp-htmlmin');
@@ -49,9 +51,9 @@ const css = () => {
         // Start sourcemap
         .pipe(sourcemaps.init())
         // Compile SASS to CSS
-        .pipe(sass.sync({ outputStyle: "compressed" })).on('error', sass.logError)
+        .pipe(sass.sync({ outputStyle: 'compressed' })).on('error', sass.logError)
         // Add suffix
-        .pipe(rename({ basename: 'main', suffix: ".min" }))
+        .pipe(rename({ basename: 'main', suffix: '.min' }))
         // Add Autoprefixer & cssNano
         .pipe(postcss([autoprefixer(), cssnano()]))
         // Write sourcemap
@@ -81,13 +83,30 @@ const html = () => {
         .pipe(gulp.dest(`${dest}`));
 };
 
-// Compile .js to minified .js
-const script = () => {
-    return browserify(`${src}/js/main.js`, { debug: true })
+const hasTypescript = () => {
+    const tsconfigPath = path.join(__dirname, 'tsconfig.json')
+    return fs.existsSync(tsconfigPath)
+};
+
+const typescript = () => {
+    return browserify(`${src}/script/main.ts`, { debug: true })
+        .plugin('tsify');
+};
+
+const javascript = () => {
+    return browserify(`${src}/script/main.js`, { debug: true })
         .transform('babelify', {
             presets: ['babel-preset-env'],
             plugins: ['babel-plugin-transform-runtime']
-        }).plugin('tinyify')
+        });
+};
+
+// Compile .js/.ts to minified .js
+const script = () => {
+    const sourceStream = hasTypescript() ? typescript() : javascript();
+
+    return sourceStream
+        .plugin('tinyify')
         .bundle()
         .pipe(source(`main.bundle.js`))
         .pipe(buffer())
@@ -105,7 +124,7 @@ const assets = () => {
 
 // Watch changes and refresh page
 const watch = () => gulp.watch(
-    [`${src}/*.html`, `${src}/js/**/*.js`, `${src}/sass/**/*.sass`, `${src}/assets/**/*.*`],
+    [`${src}/*.html`, `${src}/script/**/*.(js|ts)`, `${src}/sass/**/*.sass`, `${src}/assets/**/*.*`],
     gulp.series(assets, css, script, html, reload));
 
 // Development tasks

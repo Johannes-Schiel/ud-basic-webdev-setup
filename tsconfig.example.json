@@ -1,0 +1,16 @@
+  {
+    "compilerOptions": {
+      "target": "ES2015",
+      "moduleResolution": "node",
+      "removeComments": true,
+      "experimentalDecorators": true
+    },
+  
+    "include": [
+      "src/**/*"
+    ],
+    
+    "exclude": [
+      "node_modules"
+    ]
+  }
