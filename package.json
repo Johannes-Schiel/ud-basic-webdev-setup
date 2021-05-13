@@ -1,6 +1,6 @@
 {
     "name": "basic-dev-environment-2020",
-    "version": "1.2.1",
+    "version": "1.4.0",
     "description": "Bei diesem Repository handelt es sich um meine \"Test-/Entwicklungsumgebung\" für alle meine YouTube Tutorials. Sie basiert auf Gulp, TypeScript/JS, ES6+ und SASS",
     "main": "index.js",
     "scripts": {
@@ -71,6 +71,7 @@
         "babel-runtime": "^6.26.0",
         "faker": "^5.1.0",
         "jest-puppeteer": "^4.4.0",
+        "node-sass": "^6.0.0",
         "postcss": "^8.1.0",
         "puppeteer": "^7.1.0"
     }
