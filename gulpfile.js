@@ -8,7 +8,7 @@ const sourcemaps = require('gulp-sourcemaps');
 
 // SASS -> CSS
 const sass = require('gulp-sass');
-const postcss = require("gulp-postcss");
+const postcss = require('gulp-postcss');
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 
