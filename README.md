@@ -11,6 +11,10 @@ Bei diesem Repository handelt es sich um meine "Test-/Entwicklungsumgebung" für
 
 `npm run build` ist der Build-Befehl, hierbei wird alles gebaut und im `dist/` Verzeichnis hinterlegt. Es wird nicht auf Änderungen an Dateien gewartet.
 
+## Typescript
+
+Zur Verwendung von Typescript muss eine in der Gulpfile die Variable `useTypeScript` auf `true` gesetzt werden. Anschließend werden die `.ts` Files in der `src/script` Directory genutzt und nicht mehr die `.js` Files. Es können jedoch beide Arten von Files in der Directory liegen.
+
 ## Mitarbeit
 
 Wie bei jedem Programmier-Projekt kommt dieses Projekt auch in die Jahre, gerne kannst du helfen diese Umgebung besser zu gestalten und Änderungen vorschlagen oder Issues schreiben.
