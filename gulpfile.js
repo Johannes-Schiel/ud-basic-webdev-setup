@@ -43,7 +43,7 @@ const serve = (done) => {
 // Compile SASS to CSS with gulp
 const css = () => {
     // Find SASS
-    return gulp.src(`${src}/sass/**/*.sass`)
+    return gulp.src(`${src}/sass/**/*.{sass,scss}`)
         // Init Plumber
         .pipe(plumber())
         // Start sourcemap
@@ -105,7 +105,7 @@ const assets = () => {
 
 // Watch changes and refresh page
 const watch = () => gulp.watch(
-    [`${src}/*.html`, `${src}/js/**/*.js`, `${src}/sass/**/*.sass`, `${src}/assets/**/*.*`],
+    [`${src}/*.html`, `${src}/js/**/*.js`, `${src}/sass/**/*.{sass,scss}`, `${src}/assets/**/*.*`],
     gulp.series(assets, css, script, html, reload));
 
 // Development tasks
