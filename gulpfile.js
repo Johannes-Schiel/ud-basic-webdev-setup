@@ -1,11 +1,8 @@
 // Import important packages
-const fs = require('fs');
-const path = require('path');
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
-const browserify = require('browserify');
 const sourcemaps = require('gulp-sourcemaps');
 
 // SASS -> CSS
@@ -18,9 +15,9 @@ const cssnano = require("cssnano");
 const htmlmin = require('gulp-htmlmin');
 
 // JavaScript / TypeScript
-const terser = require('gulp-terser-js');
-const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const { createGulpEsbuild } = require('gulp-esbuild')
+const gulpEsbuild = createGulpEsbuild({ incremental: true })
 
 // Define important variables
 const src = './src';
@@ -85,16 +82,11 @@ const html = () => {
 };
 
 const typescript = () => {
-    return browserify(`${src}/script/main.ts`, { debug: true })
-        .plugin('tsify');
+    return gulp.src(`${src}/script/main.ts`);
 };
 
 const javascript = () => {
-    return browserify(`${src}/script/main.js`, { debug: true })
-        .transform('babelify', {
-            presets: ['babel-preset-env'],
-            plugins: ['babel-plugin-transform-runtime']
-        });
+    return gulp.src(`${src}/script/main.js`);
 };
 
 // Compile .js/.ts to minified .js
@@ -102,13 +94,14 @@ const script = () => {
     const sourceStream = useTypeScript ? typescript() : javascript();
 
     return sourceStream
-        .plugin('tinyify')
-        .bundle()
-        .pipe(source(`main.bundle.js`))
+        .pipe(gulpEsbuild({
+            outfile: 'main.bundle.js',
+            bundle: true,
+            minify: true,
+            sourcemap: true,
+            platform: 'browser'
+        }))
         .pipe(buffer())
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(terser())
-        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(`${dest}/js`));
 };
 
