@@ -7,4 +7,5 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 ## [1.4.1]
 
 - NPM updates
+- create sourcemaps even in production (#30)
 - add new Builder jsbuild (#27)
