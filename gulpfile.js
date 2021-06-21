@@ -89,25 +89,24 @@ const javascript = () => {
 };
 
 // Compile .js/.ts to minified .js
-const makeScriptTask = (options) => () => {
-    const gulpEsbuild = createGulpEsbuild(options)
-
-    const sourceStream = useTypeScript ? typescript() : javascript();
-
-    return sourceStream
-        .pipe(gulpEsbuild({
-            outfile: 'main.bundle.js',
-            bundle: true,
-            minify: true,
-            sourcemap: true,
-            platform: 'browser'
-        }))
-        .pipe(buffer())
-        .pipe(gulp.dest(`${dest}/js`));
-};
-
-const scriptDev = makeScriptTask({ incremental: true })
-const scriptBuild = makeScriptTask({})
+const makeScriptTask = (options) => {
+    return script = () => {
+        const gulpEsbuild = createGulpEsbuild(options)
+    
+        const sourceStream = useTypeScript ? typescript() : javascript();
+    
+        return sourceStream
+            .pipe(gulpEsbuild({
+                outfile: 'main.bundle.js',
+                bundle: true,
+                minify: true,
+                sourcemap: true,
+                platform: 'browser'
+            }))
+            .pipe(buffer())
+            .pipe(gulp.dest(`${dest}/js`));
+    };
+}
 
 // Copy assets
 const assets = () => {
@@ -115,6 +114,9 @@ const assets = () => {
         .pipe(gulp.dest(`${dest}/assets`));
 };
 
+// Build Tasks
+const scriptDev = makeScriptTask({ incremental: true });
+const scriptBuild = makeScriptTask({});
 // Watch changes and refresh page
 const watch = () => gulp.watch(
     [`${src}/*.html`, `${src}/script/**/*.(js|ts)`, `${src}/sass/**/*.{sass,scss}`, `${src}/assets/**/*.*`],
