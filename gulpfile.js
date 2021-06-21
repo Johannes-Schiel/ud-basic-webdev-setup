@@ -4,6 +4,7 @@ const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
+const del = require('del');
 
 // SASS -> CSS
 const sass = require('gulp-sass');
@@ -22,6 +23,8 @@ const { createGulpEsbuild } = require('gulp-esbuild')
 const src = './src';
 const dest = './dist';
 const useTypeScript = false;
+
+gulp.task('delete-dest', () => del([dest]));
 
 // Reload the browser
 const reload = (done) => {
@@ -123,13 +126,14 @@ const devCompilationTasks = gulp.parallel(assets, css, scriptDev, html)
 // Watch changes and refresh page
 const watch = () => gulp.watch(
     [`${src}/*.html`, `${src}/script/**/*.(js|ts)`, `${src}/sass/**/*.{sass,scss}`, `${src}/assets/**/*.*`],
-    gulp.series(devCompilationTasks, reload));
+    gulp.series('delete-dest', devCompilationTasks, reload));
 
 // Development tasks
-const dev = gulp.series(devCompilationTasks, serve, watch);
+const dev = gulp.series('delete-dest', devCompilationTasks, serve, watch);
 
 // Build tasks
-const build = gulp.parallel(assets, css, scriptBuild, html);
+const buildCompilationTasks = gulp.parallel(assets, css, scriptBuild, html);
+const build = gulp.series('delete-dest', buildCompilationTasks);
 
 // Default function (used when type "gulp")
 exports.default = dev;
