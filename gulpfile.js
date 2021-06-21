@@ -117,16 +117,19 @@ const assets = () => {
 // Build Tasks
 const scriptDev = makeScriptTask({ incremental: true });
 const scriptBuild = makeScriptTask({});
+
+const devCompilationTasks = gulp.parallel(assets, css, scriptDev, html)
+
 // Watch changes and refresh page
 const watch = () => gulp.watch(
     [`${src}/*.html`, `${src}/script/**/*.(js|ts)`, `${src}/sass/**/*.{sass,scss}`, `${src}/assets/**/*.*`],
-    gulp.series(assets, css, scriptDev, html, reload));
+    gulp.series(devCompilationTasks, reload));
 
 // Development tasks
-const dev = gulp.series(assets, css, scriptDev, html, serve, watch);
+const dev = gulp.series(devCompilationTasks, serve, watch);
 
 // Build tasks
-const build = gulp.series(css, scriptBuild, html, assets);
+const build = gulp.parallel(assets, css, scriptBuild, html);
 
 // Default function (used when type "gulp")
 exports.default = dev;
