@@ -1,6 +1,6 @@
 {
     "name": "basic-dev-environment-setup",
-    "version": "1.4.0",
+    "version": "1.4.2",
     "description": "Bei diesem Repository handelt es sich um meine \"Test-/Entwicklungsumgebung\" für alle meine YouTube Tutorials. Sie basiert auf Gulp, TypeScript/JS, ES6+ und SASS",
     "main": "index.js",
     "scripts": {
