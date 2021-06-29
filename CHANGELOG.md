@@ -7,7 +7,6 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 ## [1.4.2]
 
 - Fix: Libsass ist deprecated #32
-- Fix: Sourcemaps nicht im Production Build erstellen #30
 
 ## [1.4.1]
 
