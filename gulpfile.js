@@ -6,7 +6,9 @@ const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
 
 // SASS -> CSS
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
+sass.compiler = require('sass');
+const Fiber = require('fibers');
 const postcss = require('gulp-postcss');
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
@@ -49,7 +51,10 @@ const css = () => {
         // Start sourcemap
         .pipe(sourcemaps.init())
         // Compile SASS to CSS
-        .pipe(sass.sync({ outputStyle: 'compressed' })).on('error', sass.logError)
+        .pipe(sass({
+            includePaths: ['./node_modules'],
+            fiber: Fiber
+        }).on('error', sass.logError))
         // Add suffix
         .pipe(rename({ basename: 'main', suffix: '.min' }))
         // Add Autoprefixer & cssNano
