@@ -19,7 +19,7 @@ const htmlmin = require('gulp-htmlmin');
 // JavaScript / TypeScript
 const buffer = require('vinyl-buffer');
 const { createGulpEsbuild } = require('gulp-esbuild')
-const gulpEsbuild = createGulpEsbuild({ incremental: true })
+const gulpEsbuild = createGulpEsbuild({ incremental: false })
 
 // Define important variables
 const src = './src';
@@ -62,9 +62,7 @@ const css = () => {
         // Write sourcemap
         .pipe(sourcemaps.write(''))
         // Write everything to destination folder
-        .pipe(gulp.dest(`${dest}/css`))
-        // Reload page
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest(`${dest}/css`));
 };
 
 // Compile .html to minified .html
@@ -118,14 +116,25 @@ const assets = () => {
 
 // Watch changes and refresh page
 const watch = () => gulp.watch(
-    [`${src}/*.html`, `${src}/script/**/*.(js|ts)`, `${src}/sass/**/*.{sass,scss}`, `${src}/assets/**/*.*`],
-    gulp.series(assets, css, script, html, reload));
+    [
+        `${src}/*.html`,
+        `${src}/script/**/*.(js|ts)`,
+        `${src}/sass/**/*.{sass,scss}`,
+        `${src}/assets/**/*.*`
+    ],
+    gulp.series(
+        assets,
+        css,
+        script,
+        html,
+        reload
+    ));
 
 // Development tasks
-const dev = gulp.series(assets, css, script, html, serve, watch);
+const dev = gulp.task('dev', gulp.series(gulp.parallel(assets, css, script, html), serve, watch));
 
 // Build tasks
-const build = gulp.series(css, script, html, assets);
+const build = gulp.task('build', gulp.parallel(assets, html, css, script));
 
 // Default function (used when type "gulp")
 exports.default = dev;
