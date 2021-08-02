@@ -1,9 +1,9 @@
 name: Deployment
 
 on:
-  push:
+  pull_request:
     branches:
-      - master
+      - test
 
 jobs:
   deploy:
