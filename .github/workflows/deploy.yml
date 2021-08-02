@@ -1,0 +1,35 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Node 12.16.3
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.16.3
+
+      - name: npm install and npm run build
+        run: |
+          npm i
+          npm run build
+
+      - name: copy files to server
+        uses: appleboy/scp-action@master
+        with:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          password: ${{ secrets.PASSWORD }}
+          source: "./dist/*"
+          target: ${{ secrets.TARGET }}
+          strip_components: 1
