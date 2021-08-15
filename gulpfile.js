@@ -4,6 +4,8 @@ const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const sourcemaps = require('gulp-sourcemaps');
+const argv = require('yargs').argv;
+const gulpif = require('gulp-if');
 
 // SASS -> CSS
 const sass = require('gulp-sass')(require('sass'));
@@ -42,6 +44,10 @@ const serve = (done) => {
     done();
 };
 
+function isProduction() {
+    return argv.production ? true : false
+}
+
 // Compile SASS to CSS with gulp
 const css = () => {
     // Find SASS
@@ -49,7 +55,7 @@ const css = () => {
         // Init Plumber
         .pipe(plumber())
         // Start sourcemap
-        .pipe(sourcemaps.init())
+        .pipe(gulpif(!isProduction(), sourcemaps.init()))
         // Compile SASS to CSS
         .pipe(sass({
             includePaths: ['./node_modules'],
@@ -60,7 +66,7 @@ const css = () => {
         // Add Autoprefixer & cssNano
         .pipe(postcss([autoprefixer(), cssnano()]))
         // Write sourcemap
-        .pipe(sourcemaps.write(''))
+        .pipe(gulpif(!isProduction(), sourcemaps.write('')))
         // Write everything to destination folder
         .pipe(gulp.dest(`${dest}/css`));
 };
@@ -73,7 +79,7 @@ const html = () => {
         .pipe(plumber())
         // Compile HTML to minified HTML
         .pipe(htmlmin({
-            collapseWhitespace: true,
+            collapseWhitespace: isProduction(),
             removeComments: true,
             html5: true,
             removeEmptyAttributes: true,
@@ -95,13 +101,12 @@ const javascript = () => {
 // Compile .js/.ts to minified .js
 const script = () => {
     const sourceStream = useTypeScript ? typescript() : javascript();
-
     return sourceStream
         .pipe(gulpEsbuild({
             outfile: 'main.bundle.js',
             bundle: true,
             minify: true,
-            sourcemap: true,
+            sourcemap: !isProduction(),
             platform: 'browser'
         }))
         .pipe(buffer())
@@ -134,7 +139,13 @@ const watch = () => gulp.watch(
 const dev = gulp.task('dev', gulp.series(gulp.parallel(assets, css, script, html), serve, watch));
 
 // Build tasks
-const build = gulp.task('build', gulp.parallel(assets, html, css, script));
+const build = gulp.task('build',
+    gulp.parallel(
+        assets,
+        html,
+        css,
+        script
+    ));
 
 // Default function (used when type "gulp")
 exports.default = dev;

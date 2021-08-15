@@ -8,7 +8,8 @@
         "test": "jest --watch=true",
         "test:ci": "jest --coverage=true",
         "e2e": "jest --config jest-e2e.js",
-        "build": "gulp build"
+        "build": "gulp build",
+        "build:prod": "gulp build --production"
     },
     "repository": {
         "type": "git",
@@ -40,6 +41,7 @@
         "gulp-concat": "^2.6.1",
         "gulp-esbuild": "^0.8.2",
         "gulp-htmlmin": "^5.0.1",
+        "gulp-if": "^3.0.0",
         "gulp-jest": "^4.0.3",
         "gulp-jshint": "^2.1.0",
         "gulp-jslint": "^1.0.10",
@@ -63,7 +65,7 @@
         "typescript": "^4.2.4",
         "vinyl-buffer": "^1.0.1",
         "vinyl-source-stream": "^2.0.0",
-        "watchify": "^4.0.0"
-    },
-    "dependencies": {}
+        "watchify": "^4.0.0",
+        "yargs": "^17.1.1"
+    }
 }
