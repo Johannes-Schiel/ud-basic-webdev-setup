@@ -4,6 +4,11 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [1.4.4]
+
+- Add: BugFix Form für das melden von Fehlern im Projekt
+- Update: Update der Node Moduels in dem Projekt
+
 ## [1.4.3]
 
 ### Add
