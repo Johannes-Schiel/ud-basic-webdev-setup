@@ -1,0 +1,50 @@
+name: Bug Report
+description: File a bug report
+title: '<title>'
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke für das Melden eines Fehlers in diesem Projekt.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Was passiert genau?
+      description: Beschreibe den Fehler am besten so ausführlich wie möglich.
+      placeholder: Erzähle was nicht klappt!
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduktion (Schritte)
+      description: Wie können wir den Fehler nachstellen? Hast du etwas verändert?
+      value: |
+        1.
+        2.
+        3.
+        ...
+  - type: checkboxes
+    id: features
+    attributes:
+      label: Mit welchen Feature hast du Probleme?
+      options:
+        - label: CSS/SASS
+        - label: JavaScript
+        - label: Testing (Jest)
+        - label: TypeScript
+        - label: live Reload
+        - label: Asset export
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Log or Stackrack
+      description: Wenn du einen Error Log or stackrack hast, Kopiere diesen einfach kurz hier hinein.
+      render: shell
+  - type: input
+    id: demo
+    attributes:
+      label: Demo link
+      description: Gibt es ein Repository, Projekt in dem man den Fehler nachstellen bzw. sehen kann?
+    validations:
+      required: true
