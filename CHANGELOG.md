@@ -6,7 +6,12 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 ## [1.4.4]
 
+### Add
+
 - Add: BugFix Form für das melden von Fehlern im Projekt
+
+### Change
+
 - Update: Update der Node Moduels in dem Projekt
 
 ## [1.4.3]
