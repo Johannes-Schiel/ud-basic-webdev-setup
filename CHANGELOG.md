@@ -4,6 +4,12 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [1.4.5]
+
+### Fix
+
+- Fix: Paketinstallation geht wieder #38
+
 ## [1.4.4]
 
 ### Add
