@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"preview": "vite preview",
-		"format": "prettier --write \"src/**/*.{js, scss}\""
+		"format": "prettier --write \"src/**/*.js\" \"src/**/*.html\" \"src/**/*.scss\""
 	},
 	"devDependencies": {
 		"sass": "^1.49.9",
