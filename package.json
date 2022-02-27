@@ -1,71 +1,13 @@
 {
-    "name": "basic-dev-environment-setup",
-    "version": "1.4.3",
-    "description": "Bei diesem Repository handelt es sich um meine \"Test-/Entwicklungsumgebung\" für alle meine YouTube Tutorials. Sie basiert auf Gulp, TypeScript/JS, ES6+ und SASS",
-    "main": "index.js",
-    "scripts": {
-        "dev": "gulp dev",
-        "test": "jest --watch=true",
-        "test:ci": "jest --coverage=true",
-        "e2e": "jest --config jest-e2e.js",
-        "build": "gulp build",
-        "build:prod": "gulp build --production"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Unleashed-Design/basic-dev-environment-2020.git"
-    },
-    "keywords": [
-        "Gulp",
-        "TypeScript",
-        "JavaScript",
-        "SASS",
-        "HTML"
-    ],
-    "author": "Johannes Schiel",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Unleashed-Design/basic-dev-environment-2020/issues"
-    },
-    "homepage": "https://github.com/Unleashed-Design/basic-dev-environment-2020#readme",
-    "devDependencies": {
-        "autoprefixer": "^10.2.5",
-        "babel-runtime": "^6.26.0",
-        "browser-sync": "^2.26.12",
-        "cssnano": "^5.0.2",
-        "faker": "^5.1.0",
-        "fibers": "^5.0.0",
-        "gulp": "^4.0.2",
-        "gulp-babel": "^8.0.0",
-        "gulp-clean-css": "^4.3.0",
-        "gulp-concat": "^2.6.1",
-        "gulp-esbuild": "^0.8.2",
-        "gulp-htmlmin": "^5.0.1",
-        "gulp-if": "^3.0.0",
-        "gulp-jest": "^4.0.3",
-        "gulp-jshint": "^2.1.0",
-        "gulp-jslint": "^1.0.10",
-        "gulp-minify": "^3.1.0",
-        "gulp-plumber": "^1.2.1",
-        "gulp-postcss": "^9.0.0",
-        "gulp-rename": "^2.0.0",
-        "gulp-sass": "^5.0.0",
-        "gulp-sourcemaps": "^2.6.5",
-        "gulp-uglify": "^3.0.2",
-        "gulp-util": "^3.0.8",
-        "jest": "^27.3.1",
-        "jest-puppeteer": "^6.0.0",
-        "jshint": "^2.11.0",
-        "postcss": "^8.1.0",
-        "puppeteer": "^11.0.0",
-        "rename": "^1.0.4",
-        "sass": "^1.35.1",
-        "tinyify": "^3.0.0",
-        "tsify": "^5.0.2",
-        "typescript": "^4.2.4",
-        "vinyl-buffer": "^1.0.1",
-        "vinyl-source-stream": "^2.0.0",
-        "watchify": "^4.0.0",
-        "yargs": "^17.1.1"
-    }
+  "name": "ud-basic-webdev-setup",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.8.0"
+  }
 }
