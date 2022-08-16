@@ -4,55 +4,60 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [2.1.0]
+
+-   Update: Vite wurde auf Version 3.0.8 geupdated #41
+-   Fix: Laden von Schriften #40
+
 ## [2.0.0]
 
 Diese Version verkörpert eine komplett neue Build Chain die deutlich schneller und besser funktioniert als Gulp.
 
 ### Add
 
-- ViteJS wurde als neue Basis für die IDE genutzt
+-   ViteJS wurde als neue Basis für die IDE genutzt
 
 ## Remove
 
-- Gulp sowie der großteil der alten IDE (2020) wurden entfernt und durch schnellere Tools ersetzt.
+-   Gulp sowie der großteil der alten IDE (2020) wurden entfernt und durch schnellere Tools ersetzt.
 
 ## [1.4.5]
 
 ### Fix
 
-- Fix: Paketinstallation geht wieder #38
+-   Fix: Paketinstallation geht wieder #38
 
 ## [1.4.4]
 
 ### Add
 
-- Add: BugFix Form für das melden von Fehlern im Projekt
+-   Add: BugFix Form für das melden von Fehlern im Projekt
 
 ### Change
 
-- Update: Update der Node Moduels in dem Projekt
+-   Update: Update der Node Moduels in dem Projekt
 
 ## [1.4.3]
 
 ### Add
 
-- Fix: Alle CI Farben hinzufügen enhancement #36
+-   Fix: Alle CI Farben hinzufügen enhancement #36
 
 ### BugFix
 
-- Browsersync wird nicht beendet bug #31
-- Fix: Sourcemaps nicht im Production Build erstellen bug #30
+-   Browsersync wird nicht beendet bug #31
+-   Fix: Sourcemaps nicht im Production Build erstellen bug #30
 
 ### Change
 
-- Hinzufügen eines neuen Build Befehlt (npm run build:prod)
+-   Hinzufügen eines neuen Build Befehlt (npm run build:prod)
 
 ## [1.4.2]
 
-- Fix: Libsass ist deprecated #32
+-   Fix: Libsass ist deprecated #32
 
 ## [1.4.1]
 
-- NPM updates
-- create sourcemaps even in production (#30)
-- add new Builder jsbuild (#27)
+-   NPM updates
+-   create sourcemaps even in production (#30)
+-   add new Builder jsbuild (#27)
