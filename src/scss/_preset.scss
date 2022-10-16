@@ -7,7 +7,7 @@ $ciBlue: #00fff1;
 $ciRed: #ff00aa;
 $ciWhite: #ffffff;
 $ciGreen: #46fcb4;
-$second: #0c1016;
+$ciSecond: #0c1016;
 
 $roboto: 'Roboto';
 
@@ -37,11 +37,11 @@ html {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: $second;
+	background-color: $ciSecond;
 	font-size: 10px;
 	margin: 0;
 	padding: 0;
-	color: $ciBlue;
+	color: $ciWhite;
 	font-family: $roboto;
 }
 
