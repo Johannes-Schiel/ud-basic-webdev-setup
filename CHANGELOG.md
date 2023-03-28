@@ -6,9 +6,13 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 ## [2.2.0]
 
+### Update
+
 -   Update: Update NPM Packages
 
 ## [2.1.0]
+
+### Update
 
 -   Update: Vite wurde auf Version 3.0.8 geupdated #41
 -   Fix: Laden von Schriften #40
