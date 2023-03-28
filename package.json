@@ -1,7 +1,7 @@
 {
 	"name": "ud-basic-webdev-setup",
 	"private": false,
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"discription": "Bei diesem Repository handelt es sich um meine \"Test-/Entwicklungsumgebung\" für alle meine YouTube Tutorials. Sie basiert auf Vite, JS und SCSS",
 	"scripts": {
 		"dev": "vite",

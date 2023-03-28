@@ -4,6 +4,10 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [2.2.0]
+
+-   Update: Update NPM Packages
+
 ## [2.1.0]
 
 -   Update: Vite wurde auf Version 3.0.8 geupdated #41
