@@ -6,11 +6,12 @@ Bei diesem Repository handelt es sich um meine "Test-/Entwicklungsumgebung" für
 
 Um den Tutorials zu folgen zum Start einfach:
 
-``` bash
-> npm i
-...
-> npm run dev
+```bash
+npm install
+```
 
+```bash
+npm run dev
 ```
 
 eingeben, anschließend solltest du unter `http://localhost:3000/` deine Umgebung sehen, sodass direkt mit dem Tutorial gestartet werden kann.
