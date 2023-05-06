@@ -1,26 +1,36 @@
 {
 	"name": "ud-basic-webdev-setup",
 	"private": false,
-	"version": "2.2.0",
+	"version": "2.3.0",
 	"discription": "Bei diesem Repository handelt es sich um meine \"Test-/Entwicklungsumgebung\" für alle meine YouTube Tutorials. Sie basiert auf Vite, JS und SCSS",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"test": "vitest",
-		"coverage": "vitest run --coverage",
-		"preview": "vite preview",
+		"test": "vitest --run",
+		"lint": "eslint ./src --ext .js,.ts",
+		"coverage": "vitest --coverage",
 		"format": "prettier --write \"src/**/*.js\" \"src/**/*.html\" \"src/**/*.scss\""
 	},
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.59.2",
 		"c8": "^7.11.3",
+		"eslint": "^8.40.0",
+		"eslint-config-standard-with-typescript": "^34.0.1",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-n": "^15.7.0",
+		"eslint-plugin-promise": "^6.1.1",
+		"jsdom": "^22.0.0",
 		"sass": "^1.49.9",
-		"vite": "^2.8.0"
+		"typescript": "^5.0.4",
+		"vite": "^4.3.5"
 	},
 	"dependencies": {
-		"eslint": "^8.10.0",
-		"eslint-config-prettier": "^8.4.0",
+		"@typescript-eslint/parser": "^5.59.2",
+		"eslint-config-prettier": "^8.8.0",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-prettier": "^4.0.0",
-		"prettier": "^2.5.1",
-		"vitest": "^0.22.0"
+		"eslint-plugin-react": "^7.32.2",
+		"prettier": "^2.8.8",
+		"vitest": "^0.31.0"
 	}
 }

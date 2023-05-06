@@ -4,6 +4,15 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [2.3.0]
+
+### Update
+
+-   Update: Update NPM Packages
+-   Update: Update ViteJS auf Version 4.3.5
+-   Add EsLint & Linter
+-   Update Prettier
+
 ## [2.2.0]
 
 ### Update

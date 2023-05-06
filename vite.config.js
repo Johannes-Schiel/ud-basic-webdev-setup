@@ -5,6 +5,7 @@ export default defineConfig({
 		include: ['**/js/*.test.js'],
 		globals: true,
 		reporters: 'verbose',
+		environment: 'jsdom',
 	},
 	root: 'src',
 	build: {
