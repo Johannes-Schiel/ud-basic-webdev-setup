@@ -22,7 +22,7 @@
 		"jsdom": "^22.0.0",
 		"sass": "^1.49.9",
 		"typescript": "^5.0.4",
-		"vite": "^4.3.5"
+		"vite": "^4.3.9"
 	},
 	"dependencies": {
 		"@typescript-eslint/parser": "^5.59.2",
