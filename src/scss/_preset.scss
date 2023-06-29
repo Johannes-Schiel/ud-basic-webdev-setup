@@ -2,12 +2,14 @@
 // sofen das Projekt für ein wirkliches Projekt als Grundlage
 // dient einfach gelöscht werden.
 
-$prime: #ff6e48;
-$ciBlue: #00fff1;
-$ciRed: #ff00aa;
-$ciWhite: #ffffff;
-$ciGreen: #46fcb4;
-$ciSecond: #0c1016;
+:root {
+	--prime: 255, 110, 72;
+	--ciBlue: 0, 255, 241;
+	--ciRed: 255, 0, 170;
+	--ciWhite: 255, 255, 255;
+	--ciGreen: 70, 252, 180;
+	--ciSecond: 12, 16, 22;
+}
 
 $roboto: 'Roboto';
 
@@ -37,11 +39,11 @@ html {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: $ciSecond;
+	background-color: rgb(var(--ciSecond));
 	font-size: 20px;
 	margin: 0;
 	padding: 0;
-	color: $ciWhite;
+	color: rgb(var(--ciWhite));
 	font-family: $roboto;
 	overflow-x: hidden;
 }
