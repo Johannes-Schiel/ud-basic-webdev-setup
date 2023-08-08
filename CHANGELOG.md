@@ -4,6 +4,13 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [2.4.0]
+
+### Update
+
+-   Update: Update NPM Packages
+-   Add: Autoprefixer für CSS Verbesserungen
+
 ## [2.3.0]
 
 ### Update
