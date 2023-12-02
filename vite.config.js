@@ -6,18 +6,16 @@ export default defineConfig({
 		include: ['**/js/*.test.js'],
 		globals: true,
 		reporters: 'verbose',
-		environment: 'jsdom'
+		environment: 'jsdom',
 	},
 	root: 'src',
 	build: {
 		emptyOutDir: true,
-		outDir: '../dist'
+		outDir: '../dist',
 	},
 	css: {
 		postcss: {
-			plugins: [
-				autoprefixer({})
-			]
-		}
-	}
+			plugins: [autoprefixer({})],
+		},
+	},
 });
