@@ -1,29 +1,27 @@
 {
 	"name": "ud-basic-webdev-setup",
 	"private": false,
-	"version": "2.11.0",
+	"version": "2.12.0",
 	"discription": "Bei diesem Repository handelt es sich um meine \"Test-/Entwicklungsumgebung\" für alle meine YouTube Tutorials. Sie basiert auf Vite, JS und SCSS",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
 		"test": "vitest --run",
-		"lint": "eslint ./src --ext .js,.ts",
+		"lint": "eslint ./src --ext .js",
 		"coverage": "vitest --coverage",
 		"format": "prettier --write \"src/**/*.js\" \"src/**/*.html\" \"src/**/*.scss\""
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.2.0",
+		"@eslint/js": "^9.4.0",
 		"autoprefixer": "^10.4.19",
 		"c8": "^9.1.0",
-		"eslint": "^8.57.0",
-		"globals": "^15.1.0",
-		"jsdom": "^24.0.0",
-		"prettier": "^3.2.5",
-		"sass": "^1.77.0",
-		"typescript": "^5.4.5",
-		"typescript-eslint": "^7.8.0",
-		"vite": "^5.2.11",
+		"eslint": "^9.4.0",
+		"globals": "^15.3.0",
+		"jsdom": "^24.1.0",
+		"prettier": "^3.3.0",
+		"sass": "^1.77.4",
+		"vite": "^5.2.12",
 		"vitest": "^1.6.0"
 	}
 }
