@@ -4,6 +4,18 @@ All notable changes to the "basic-dev-environment" extension will be documented 
 
 <!-- Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file. -->
 
+## [2.18.0]
+
+### Update
+
+-   Update: NPM Packages neue Versionen.
+
+## [2.17.0]
+
+### Update
+
+-   Update: NPM Packages neue Versionen.
+
 ## [2.16.0]
 
 ### Update
